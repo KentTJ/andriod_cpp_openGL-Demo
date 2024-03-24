@@ -1,0 +1,4 @@
+E:/laji/openGL-Demo-master/openGL-Demo-master/app/.cxx/Debug/1j5i662u/x86/CMakeFiles/gltest-lib.dir
+E:/laji/openGL-Demo-master/openGL-Demo-master/app/.cxx/Debug/1j5i662u/x86/CMakeFiles/native-lib.dir
+E:/laji/openGL-Demo-master/openGL-Demo-master/app/.cxx/Debug/1j5i662u/x86/CMakeFiles/edit_cache.dir
+E:/laji/openGL-Demo-master/openGL-Demo-master/app/.cxx/Debug/1j5i662u/x86/CMakeFiles/rebuild_cache.dir

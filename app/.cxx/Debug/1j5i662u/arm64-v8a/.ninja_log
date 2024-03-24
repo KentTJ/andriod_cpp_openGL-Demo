@@ -1,0 +1,5 @@
+# ninja log v5
+13	493	7329864699873137	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	abf3f4c763456913
+0	548	7329864700467582	CMakeFiles/gltest-lib.dir/src/main/cpp/RendererJNI.cpp.o	e22d4b20d4c0b865
+494	630	7329864701111696	../../../../build/intermediates/cxx/Debug/1j5i662u/obj/arm64-v8a/libnative-lib.so	cf7118f8d972905d
+548	667	7329864701718720	../../../../build/intermediates/cxx/Debug/1j5i662u/obj/arm64-v8a/libgltest-lib.so	185cdfca4929b3e6

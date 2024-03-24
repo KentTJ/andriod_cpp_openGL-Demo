@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/openGLDemo.iml" filepath="$PROJECT_DIR$/openGLDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/openGL-Demo-master.iml" filepath="$PROJECT_DIR$/.idea/modules/openGL-Demo-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/openGL-Demo-master.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/openGL-Demo-master.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/openGL-Demo-master.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/openGL-Demo-master.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/openGL-Demo-master.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/openGL-Demo-master.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/openGL-Demo-master.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/openGL-Demo-master.app.unitTest.iml" />
     </modules>
   </component>
 </project>

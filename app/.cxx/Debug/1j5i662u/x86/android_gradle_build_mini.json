@@ -1,0 +1,37 @@
+{
+  "buildFiles": [
+    "E:\\laji\\openGL-Demo-master\\openGL-Demo-master\\app\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "E:\\programFiles\\Andriod\\andriod_sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "E:\\laji\\openGL-Demo-master\\openGL-Demo-master\\app\\.cxx\\Debug\\1j5i662u\\x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "E:\\programFiles\\Andriod\\andriod_sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "E:\\laji\\openGL-Demo-master\\openGL-Demo-master\\app\\.cxx\\Debug\\1j5i662u\\x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "native-lib::@6890427a1f51a3e7e1df": {
+      "artifactName": "native-lib",
+      "abi": "x86",
+      "output": "E:\\laji\\openGL-Demo-master\\openGL-Demo-master\\app\\build\\intermediates\\cxx\\Debug\\1j5i662u\\obj\\x86\\libnative-lib.so",
+      "runtimeFiles": [
+        "E:\\programFiles\\Andriod\\andriod_sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\26\\liblog.so"
+      ]
+    },
+    "gltest-lib::@6890427a1f51a3e7e1df": {
+      "artifactName": "gltest-lib",
+      "abi": "x86",
+      "output": "E:\\laji\\openGL-Demo-master\\openGL-Demo-master\\app\\build\\intermediates\\cxx\\Debug\\1j5i662u\\obj\\x86\\libgltest-lib.so",
+      "runtimeFiles": [
+        "E:\\programFiles\\Andriod\\andriod_sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\26\\liblog.so"
+      ]
+    }
+  }
+}

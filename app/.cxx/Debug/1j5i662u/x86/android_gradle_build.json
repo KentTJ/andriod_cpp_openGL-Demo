@@ -1,0 +1,49 @@
+{
+  "buildFiles": [
+    "E:\\laji\\openGL-Demo-master\\openGL-Demo-master\\app\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "E:\\programFiles\\Andriod\\andriod_sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "E:\\laji\\openGL-Demo-master\\openGL-Demo-master\\app\\.cxx\\Debug\\1j5i662u\\x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "E:\\programFiles\\Andriod\\andriod_sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "E:\\laji\\openGL-Demo-master\\openGL-Demo-master\\app\\.cxx\\Debug\\1j5i662u\\x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "gltest-lib::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "gltest-lib",
+      "output": "E:\\laji\\openGL-Demo-master\\openGL-Demo-master\\app\\build\\intermediates\\cxx\\Debug\\1j5i662u\\obj\\x86\\libgltest-lib.so",
+      "runtimeFiles": [
+        "E:\\programFiles\\Andriod\\andriod_sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\26\\liblog.so"
+      ]
+    },
+    "native-lib::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "native-lib",
+      "output": "E:\\laji\\openGL-Demo-master\\openGL-Demo-master\\app\\build\\intermediates\\cxx\\Debug\\1j5i662u\\obj\\x86\\libnative-lib.so",
+      "runtimeFiles": [
+        "E:\\programFiles\\Andriod\\andriod_sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\26\\liblog.so"
+      ]
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "E:\\programFiles\\Andriod\\andriod_sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe",
+      "cppCompilerExecutable": "E:\\programFiles\\Andriod\\andriod_sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}
