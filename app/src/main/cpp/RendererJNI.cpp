@@ -11,9 +11,9 @@
 #define LOG_TAG "ndk-build"
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
-GLint	g_programObject;
-jint	g_width;
-jint	g_height;
+GLint    g_programObject;
+jint     g_width;
+jint     g_height;
 
 AAssetManager* g_pAssetManager = NULL;
 char* readShaderSrcFile(char *shaderFile, AAssetManager *pAssetManager)
@@ -110,8 +110,8 @@ JNIEXPORT void JNICALL Java_opengl_panjq_com_opengl_1demo_RendererJNI_glesInit
                     "   fragColor = vec4 ( 1.0, 0.0, 0.0, 1.0 );  \n"
                     "}                                            \n";
 
-//    char *pVertexShader = readShaderSrcFile("shader/vs.glsl", g_pAssetManager);
-//    char *pFragmentShader = readShaderSrcFile("shader/fs.glsl", g_pAssetManager);
+    char *pVertexShader = readShaderSrcFile("shader/vs.glsl", g_pAssetManager);
+    char *pFragmentShader = readShaderSrcFile("shader/fs.glsl", g_pAssetManager);
 
     GLuint vertexShader;
     GLuint fragmentShader;
@@ -119,10 +119,10 @@ JNIEXPORT void JNICALL Java_opengl_panjq_com_opengl_1demo_RendererJNI_glesInit
     GLint linked;
 
     // Load the vertex/fragment shaders
-    vertexShader = LoadShader ( GL_VERTEX_SHADER, vShaderStr );
-    fragmentShader = LoadShader ( GL_FRAGMENT_SHADER, fShaderStr );
-//    vertexShader = LoadShader ( GL_VERTEX_SHADER, pVertexShader );
-//    fragmentShader = LoadShader ( GL_FRAGMENT_SHADER, pFragmentShader );
+//    vertexShader = LoadShader ( GL_VERTEX_SHADER, vShaderStr );
+//    fragmentShader = LoadShader ( GL_FRAGMENT_SHADER, fShaderStr );
+    vertexShader = LoadShader ( GL_VERTEX_SHADER, pVertexShader );
+    fragmentShader = LoadShader ( GL_FRAGMENT_SHADER, pFragmentShader );
 
     // Create the program object
     programObject = glCreateProgram ( );
@@ -167,6 +167,22 @@ JNIEXPORT void JNICALL Java_opengl_panjq_com_opengl_1demo_RendererJNI_glesInit
     glClearColor ( 1.0f, 1.0f, 1.0f, 0.0f );
 }
 
+
+#include <jni.h>
+#include <chrono>
+#include <cmath>
+double getYValue() {
+    // 获取当前时间
+    auto currentTime = std::chrono::steady_clock::now();
+    // 转换为秒
+    double timeInSeconds = std::chrono::duration<double>(currentTime.time_since_epoch()).count();
+
+    // 计算sin函数值，确保y在0~1之间
+    double yValue = (1.0 + std::sin(timeInSeconds)) / 2.0;
+
+    return yValue;
+}
+
 /*
  * Class:     opengl_panjq_com_opengl_demo_RendererJNI
  * Method:    glesRender
@@ -194,7 +210,18 @@ JNIEXPORT void JNICALL Java_opengl_panjq_com_opengl_1demo_RendererJNI_glesRender
 
     glDrawArrays ( GL_TRIANGLES, 0, 3 );
 
+
+
+    // cg add
+    float greenValue = getYValue();
+//    float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
+    LOGE("chen, greenValue: %f", greenValue);
+    int vertexColorLocation = glGetUniformLocation(g_programObject, "ourColor");
+    glUseProgram(g_programObject);
+    glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+
 }
+
 
 /*
  * Class:     opengl_panjq_com_opengl_demo_RendererJNI
