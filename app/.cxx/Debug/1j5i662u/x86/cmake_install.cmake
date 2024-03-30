@@ -1,4 +1,4 @@
-# Install script for directory: E:/laji/openGL-Demo-master/openGL-Demo-master/app
+# Install script for directory: H:/working_pan/PROJECTS/openGL-Demo-master/andriod_cpp_openGL-Demo/app
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "E:/laji/openGL-Demo-master/openGL-Demo-master/app/.cxx/Debug/1j5i662u/x86/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "H:/working_pan/PROJECTS/openGL-Demo-master/andriod_cpp_openGL-Demo/app/.cxx/Debug/1j5i662u/x86/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

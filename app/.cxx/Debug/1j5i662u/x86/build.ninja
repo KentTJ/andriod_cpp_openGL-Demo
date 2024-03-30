@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = E$:/laji/openGL-Demo-master/openGL-Demo-master/app/.cxx/Debug/1j5i662u/x86/
+cmake_ninja_workdir = H$:/working_pan/PROJECTS/openGL-Demo-master/andriod_cpp_openGL-Demo/app/.cxx/Debug/1j5i662u/x86/
 # =============================================================================
 # Object build statements for SHARED_LIBRARY target gltest-lib
 
@@ -49,11 +49,11 @@ cmake_ninja_workdir = E$:/laji/openGL-Demo-master/openGL-Demo-master/app/.cxx/De
 
 build cmake_object_order_depends_target_gltest-lib: phony || CMakeFiles/gltest-lib.dir
 
-build CMakeFiles/gltest-lib.dir/src/main/cpp/RendererJNI.cpp.o: CXX_COMPILER__gltest-lib_Debug E$:/laji/openGL-Demo-master/openGL-Demo-master/app/src/main/cpp/RendererJNI.cpp || cmake_object_order_depends_target_gltest-lib
+build CMakeFiles/gltest-lib.dir/src/main/cpp/RendererJNI.cpp.o: CXX_COMPILER__gltest-lib_Debug H$:/working_pan/PROJECTS/openGL-Demo-master/andriod_cpp_openGL-Demo/app/src/main/cpp/RendererJNI.cpp || cmake_object_order_depends_target_gltest-lib
   DEFINES = -Dgltest_lib_EXPORTS
   DEP_FILE = CMakeFiles\gltest-lib.dir\src\main\cpp\RendererJNI.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++11 -fno-limit-debug-info  -fPIC
-  INCLUDES = -IE:/laji/openGL-Demo-master/openGL-Demo-master/app -IE:/laji/openGL-Demo-master/openGL-Demo-master/app/src/main/cpp
+  INCLUDES = -IH:/working_pan/PROJECTS/openGL-Demo-master/andriod_cpp_openGL-Demo/app -IH:/working_pan/PROJECTS/openGL-Demo-master/andriod_cpp_openGL-Demo/app/src/main/cpp
   OBJECT_DIR = CMakeFiles\gltest-lib.dir
   OBJECT_FILE_DIR = CMakeFiles\gltest-lib.dir\src\main\cpp
   TARGET_COMPILE_PDB = CMakeFiles\gltest-lib.dir\
@@ -89,11 +89,11 @@ build ../../../../build/intermediates/cxx/Debug/1j5i662u/obj/x86/libgltest-lib.s
 
 build cmake_object_order_depends_target_native-lib: phony || CMakeFiles/native-lib.dir
 
-build CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o: CXX_COMPILER__native-lib_Debug E$:/laji/openGL-Demo-master/openGL-Demo-master/app/src/main/cpp/native-lib.cpp || cmake_object_order_depends_target_native-lib
+build CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o: CXX_COMPILER__native-lib_Debug H$:/working_pan/PROJECTS/openGL-Demo-master/andriod_cpp_openGL-Demo/app/src/main/cpp/native-lib.cpp || cmake_object_order_depends_target_native-lib
   DEFINES = -Dnative_lib_EXPORTS
   DEP_FILE = CMakeFiles\native-lib.dir\src\main\cpp\native-lib.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++11 -fno-limit-debug-info  -fPIC
-  INCLUDES = -IE:/laji/openGL-Demo-master/openGL-Demo-master/app -IE:/laji/openGL-Demo-master/openGL-Demo-master/app/src/main/cpp
+  INCLUDES = -IH:/working_pan/PROJECTS/openGL-Demo-master/andriod_cpp_openGL-Demo/app -IH:/working_pan/PROJECTS/openGL-Demo-master/andriod_cpp_openGL-Demo/app/src/main/cpp
   OBJECT_DIR = CMakeFiles\native-lib.dir
   OBJECT_FILE_DIR = CMakeFiles\native-lib.dir\src\main\cpp
   TARGET_COMPILE_PDB = CMakeFiles\native-lib.dir\
@@ -125,7 +125,7 @@ build ../../../../build/intermediates/cxx/Debug/1j5i662u/obj/x86/libnative-lib.s
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D E:\laji\openGL-Demo-master\openGL-Demo-master\app\.cxx\Debug\1j5i662u\x86 && E:\programFiles\Andriod\andriod_sdk\cmake\3.22.1\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D H:\working_pan\PROJECTS\openGL-Demo-master\andriod_cpp_openGL-Demo\app\.cxx\Debug\1j5i662u\x86 && E:\programFiles\Andriod\andriod_sdk\cmake\3.22.1\bin\cmake.exe -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -136,7 +136,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D E:\laji\openGL-Demo-master\openGL-Demo-master\app\.cxx\Debug\1j5i662u\x86 && E:\programFiles\Andriod\andriod_sdk\cmake\3.22.1\bin\cmake.exe --regenerate-during-build -SE:\laji\openGL-Demo-master\openGL-Demo-master\app -BE:\laji\openGL-Demo-master\openGL-Demo-master\app\.cxx\Debug\1j5i662u\x86"
+  COMMAND = cmd.exe /C "cd /D H:\working_pan\PROJECTS\openGL-Demo-master\andriod_cpp_openGL-Demo\app\.cxx\Debug\1j5i662u\x86 && E:\programFiles\Andriod\andriod_sdk\cmake\3.22.1\bin\cmake.exe --regenerate-during-build -SH:\working_pan\PROJECTS\openGL-Demo-master\andriod_cpp_openGL-Demo\app -BH:\working_pan\PROJECTS\openGL-Demo-master\andriod_cpp_openGL-Demo\app\.cxx\Debug\1j5i662u\x86"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -160,7 +160,7 @@ build native-lib: phony ../../../../build/intermediates/cxx/Debug/1j5i662u/obj/x
 # =============================================================================
 
 #############################################
-# Folder: E:/laji/openGL-Demo-master/openGL-Demo-master/app/.cxx/Debug/1j5i662u/x86
+# Folder: H:/working_pan/PROJECTS/openGL-Demo-master/andriod_cpp_openGL-Demo/app/.cxx/Debug/1j5i662u/x86
 
 build all: phony ../../../../build/intermediates/cxx/Debug/1j5i662u/obj/x86/libgltest-lib.so ../../../../build/intermediates/cxx/Debug/1j5i662u/obj/x86/libnative-lib.so
 

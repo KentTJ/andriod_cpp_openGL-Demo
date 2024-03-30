@@ -1,1 +1,1 @@
-E:\laji\openGL-Demo-master\openGL-Demo-master\app\build\intermediates\cxx\Debug\1j5i662u\obj\arm64-v8a
+H:\working_pan\PROJECTS\openGL-Demo-master\andriod_cpp_openGL-Demo\app\build\intermediates\cxx\Debug\1j5i662u\obj\arm64-v8a
