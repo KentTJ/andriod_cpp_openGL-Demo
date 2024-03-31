@@ -13,7 +13,7 @@ extern "C" {
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_opengl_panjq_com_opengl_1demo_RendererJNI_glesInit
-  (JNIEnv *, jobject);
+  (JNIEnv *, jobject, jstring );
 
 /*
  * Class:     opengl_panjq_com_opengl_demo_RendererJNI

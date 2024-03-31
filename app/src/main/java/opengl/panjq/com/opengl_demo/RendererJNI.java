@@ -15,18 +15,23 @@ public class RendererJNI implements GLSurfaceView.Renderer {
     }
     private AssetManager mAssetMgr = null;
     private final String mLogTag = "ndk-build";
-
-    public native void glesInit();
+    public native void glesInit(String type);
     public native void glesRender();
     public native void glesResize(int width, int height);
 
     public native void readShaderFile(AssetManager assetMgr);
 
-    public RendererJNI(Context context) {
+
+    String mGraphictype;
+
+    public RendererJNI(Context context, String type) {
         mAssetMgr = context.getAssets();
         if (null == mAssetMgr) {
             Log.e(mLogTag, "getAssets() return null !");
         }
+
+        // cg add
+        mGraphictype = type;
     }
 
     /**
@@ -38,7 +43,7 @@ public class RendererJNI implements GLSurfaceView.Renderer {
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         readShaderFile(mAssetMgr);
-        glesInit();
+        glesInit(mGraphictype);
     }
 
     /**
