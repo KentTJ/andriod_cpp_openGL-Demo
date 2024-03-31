@@ -37,13 +37,26 @@ std::vector<GLfloat> Triangle::getVertices() const {
     return vVertices;
 }
 
+void Triangle::onRender(GLint    g_programObject) const {
+    // Load the vertex data
+    glVertexAttribPointer ( 0, 3, GL_FLOAT, GL_FALSE, 0, getVertices() .data());
+    glEnableVertexAttribArray ( 0 );
+    glDrawArrays ( GL_TRIANGLES, 0, 3 );
 
+
+    float greenValue = Triangle::getYValue();
+    LOGE("chen, greenValue: %f", greenValue);
+    int vertexColorLocation = glGetUniformLocation(g_programObject, "ourColor");
+    glUseProgram(g_programObject);
+    // CG add: set color value to OPNEGL
+    glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+}
 
 
 #include <jni.h>
 #include <chrono>
 #include <cmath>
-double getYValue() {
+double Triangle::getYValue() {
     // 获取当前时间
     auto currentTime = std::chrono::steady_clock::now();
     // 转换为秒
@@ -53,15 +66,4 @@ double getYValue() {
     double yValue = (1.0 + std::sin(timeInSeconds)) / 2.0;
 
     return yValue;
-}
-
-void Triangle::onRender(GLint    g_programObject) const {
-    // cg add
-    float greenValue = getYValue();
-//    float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
-    LOGE("chen, greenValue: %f", greenValue);
-    int vertexColorLocation = glGetUniformLocation(g_programObject, "ourColor");
-    glUseProgram(g_programObject);
-    glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
-
 }

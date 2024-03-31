@@ -4,7 +4,7 @@ precision mediump float;
 out vec4 fragColor;
 
 // cg add
-uniform vec4 ourColor; // 在OpenGL程序代码中设定这个变量
+uniform vec4 ourColor; // 在cpp程序代码中设定这个变量
   
 void main()  
 {

@@ -15,7 +15,16 @@
             android:layout_height="wrap_content"
             android:text="@string/type_drawTriangle"
             android:id="@+id/btDraw"
-            android:onClick="onClick" />
+            android:onClick="onClick"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/type_drawSpaceTriangle"
+            android:id="@+id/btSpaceTriangle"
+            android:onClick="onClick"
+            android:textAllCaps="false"/>
 
     </LinearLayout>
 

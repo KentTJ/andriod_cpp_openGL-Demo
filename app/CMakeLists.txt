@@ -17,7 +17,10 @@ add_library( # Sets the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/cpp/RendererJNI.cpp )
+             src/main/cpp/RendererJNI.cpp
+             src/main/cpp/Shape.cpp
+             src/main/cpp/TrianglewithSpaceColor.cpp
+             src/main/cpp/Triangle.cpp)
 
 add_library( # Sets the name of the library.
              native-lib

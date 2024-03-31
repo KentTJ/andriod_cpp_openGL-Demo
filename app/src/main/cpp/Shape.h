@@ -15,18 +15,11 @@ public:
     ~Shape() {} // 基类析构函数要声明为虚函数，以确保正确释放资源
     // 获取三角形配置文件接口
 
-    // TODO: 为啥使用虚函数和纯虚函数会crash？？？？？？？？！！！！！！！！！！！！！！！！
-//    virtual char* getGLSLVertexShader() const = 0;
-//    virtual char* getGLSLFragmentShader() const = 0;
-//    virtual void onRender(GLint    g_programObject) const = 0;
-//    virtual std::vector<GLfloat> getVertices() const = 0;
-    char *getGLSLVertexShader() const;
-
-    char *getGLSLFragmentShader() const;
-
-    void onRender(GLint g_programObject) const;
-
-    std::vector<GLfloat> getVertices() const;
+    // 纯虚函数！！
+    virtual char* getGLSLVertexShader() const = 0;
+    virtual char* getGLSLFragmentShader() const = 0;
+    virtual void onRender(GLint    g_programObject) const = 0;
+    virtual std::vector<GLfloat> getVertices() const = 0;
 };
 
 #endif //ANDRIOD_CPP_OPENGL_DEMO_SHAPE_H

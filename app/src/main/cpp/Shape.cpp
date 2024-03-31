@@ -21,5 +21,5 @@ void Shape::onRender(GLint g_programObject) const {
 }
 
 std::vector<GLfloat> Shape::getVertices() const {
-    return std::vector<GLfloat>();
+    return {};
 }

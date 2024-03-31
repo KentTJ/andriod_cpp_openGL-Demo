@@ -3,8 +3,8 @@
 
     <string name="change">切换</string>
 
-    <string name="type_drawTriangle">drawTriangle</string>
-    <string name="type_drawSpaceTriangle">drawSpaceTriangle</string>
+    <string name="type_drawTriangle">Triangle</string>
+    <string name="type_drawSpaceTriangle">TrianglewithSpaceColor</string>
     <string name="type_drawTimeTriangle">drawTimeTriangle</string>
     <string name="type_texture">图片处理</string>
     <string name="type_vary">图形变换</string>

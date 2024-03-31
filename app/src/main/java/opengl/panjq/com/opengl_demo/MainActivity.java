@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button btDraw = findViewById(R.id.btDraw);
         btDraw.setOnClickListener(MainActivity.this);
+
+        Button btSpaceTriangle = findViewById(R.id.btSpaceTriangle);
+        btSpaceTriangle.setOnClickListener(MainActivity.this);
     }
 
     @Override

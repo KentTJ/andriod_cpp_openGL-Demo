@@ -2,6 +2,7 @@
 #include <jni.h>
 #include "RendererJNI.h"
 #include "Triangle.h"
+#include "TrianglewithSpaceColor.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <errno.h>
@@ -15,7 +16,8 @@
 GLint    g_programObject;
 jint     g_width;
 jint     g_height;
-Triangle *triangle;
+//Triangle *triangle;
+Shape *shape;
 
 AAssetManager* g_pAssetManager = NULL;
 char* readShaderSrcFile(char *shaderFile, AAssetManager *pAssetManager)
@@ -46,15 +48,14 @@ char* readShaderSrcFile(char *shaderFile, AAssetManager *pAssetManager)
 }
 
 
-GLuint LoadShader ( GLenum type, const char *shaderSrc )
+GLuint LoadShader (GLenum type, const char *shaderSrc)
 {
     GLuint shader;
     GLint compiled;
 
     // Create the shader object
-    shader = glCreateShader ( type );
-    if ( shader == 0 )
-    {
+    shader = glCreateShader (type);
+    if (shader == 0) {
         return 0;
     }
     // Load the shader source
@@ -63,12 +64,10 @@ GLuint LoadShader ( GLenum type, const char *shaderSrc )
     glCompileShader ( shader );
     // Check the compile status
     glGetShaderiv ( shader, GL_COMPILE_STATUS, &compiled );
-    if ( !compiled )
-    {
+    if ( !compiled ) {
         GLint infoLen = 0;
         glGetShaderiv ( shader, GL_INFO_LOG_LENGTH, &infoLen );
-        if ( infoLen > 1 )
-        {
+        if ( infoLen > 1 ) {
             char *infoLog = (char *)malloc ( sizeof ( char ) * infoLen );
 
             glGetShaderInfoLog ( shader, infoLen, NULL, infoLog );
@@ -94,9 +93,14 @@ void setGraphicType(JNIEnv *pEnv, jobject obj, jstring graphicType) {
     printf("Received string from Java: %s\n", nativeString);
     // 记得释放 jstring 对象
     pEnv->ReleaseStringUTFChars(graphicType, nativeString);
-
-    Triangle triangl;
-    triangle = &triangl;
+    if (strcmp(nativeString, "Triangle") == 0) {
+        shape = new Triangle();
+    }else if (strcmp(nativeString, "TrianglewithSpaceColor") == 0) {
+        shape = new TrianglewithSpaceColor();
+    } else {
+        return;
+    }
+    // TODO: 考虑 shape指针的内存释放
 }
 
 //*********************************************************************************
@@ -105,7 +109,6 @@ JNIEXPORT void JNICALL Java_opengl_panjq_com_opengl_1demo_RendererJNI_glesInit
 
     // add by cg
     setGraphicType(pEnv, obj, graphicType);
-
 
     char vShaderStr[] =
             "#version 300 es                          \n"
@@ -128,8 +131,8 @@ JNIEXPORT void JNICALL Java_opengl_panjq_com_opengl_1demo_RendererJNI_glesInit
 //    char *pFragmentShader = readShaderSrcFile("shader/fs.glsl", g_pAssetManager);
 
 
-    char *pVertexShader = readShaderSrcFile(triangle->getGLSLVertexShader(), g_pAssetManager);
-    char *pFragmentShader = readShaderSrcFile(triangle->getGLSLFragmentShader(), g_pAssetManager);
+    char *pVertexShader = readShaderSrcFile(shape->getGLSLVertexShader(), g_pAssetManager);
+    char *pFragmentShader = readShaderSrcFile(shape->getGLSLFragmentShader(), g_pAssetManager);
 
     GLuint vertexShader;
     GLuint fragmentShader;
@@ -143,39 +146,30 @@ JNIEXPORT void JNICALL Java_opengl_panjq_com_opengl_1demo_RendererJNI_glesInit
     fragmentShader = LoadShader ( GL_FRAGMENT_SHADER, pFragmentShader );
 
     // Create the program object
-    programObject = glCreateProgram ( );
+    programObject = glCreateProgram();
 
-    if ( programObject == 0 )
-    {
+    if (programObject == 0) {
         return;
     }
 
-    glAttachShader ( programObject, vertexShader );
-    glAttachShader ( programObject, fragmentShader );
+    glAttachShader(programObject, vertexShader);
+    glAttachShader(programObject, fragmentShader);
 
     // Link the program
-    glLinkProgram ( programObject );
+    glLinkProgram(programObject);
 
     // Check the link status
-    glGetProgramiv ( programObject, GL_LINK_STATUS, &linked );
-
-    if ( !linked )
-    {
+    glGetProgramiv (programObject, GL_LINK_STATUS, &linked);
+    if ( !linked ) {
         GLint infoLen = 0;
-
-        glGetProgramiv ( programObject, GL_INFO_LOG_LENGTH, &infoLen );
-
-        if ( infoLen > 1 )
-        {
-            char *infoLog = (char *)malloc ( sizeof ( char ) * infoLen );
-
-            glGetProgramInfoLog ( programObject, infoLen, NULL, infoLog );
-            LOGE("Error linking program:[%s]", infoLog );
-
-            free ( infoLog );
+        glGetProgramiv ( programObject, GL_INFO_LOG_LENGTH, &infoLen);
+        if ( infoLen > 1 ) {
+            char *infoLog = (char *)malloc (sizeof ( char ) * infoLen);
+            glGetProgramInfoLog ( programObject, infoLen, NULL, infoLog);
+            LOGE("Error linking program:[%s]", infoLog);
+            free (infoLog);
         }
-
-        glDeleteProgram ( programObject );
+        glDeleteProgram (programObject);
         return;
     }
 
@@ -191,27 +185,18 @@ JNIEXPORT void JNICALL Java_opengl_panjq_com_opengl_1demo_RendererJNI_glesInit
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_opengl_panjq_com_opengl_1demo_RendererJNI_glesRender
-  (JNIEnv *pEnv, jobject obj){
-
+  (JNIEnv *pEnv, jobject obj) {
     // Set the viewport
-    glViewport ( 0, 0, g_width, g_height );
+    glViewport (0, 0, g_width, g_height);
 
     // Clear the color buffer
-    glClear ( GL_COLOR_BUFFER_BIT );
+    glClear(GL_COLOR_BUFFER_BIT);
 
     // Use the program object
-    glUseProgram ( g_programObject );
+    glUseProgram(g_programObject);
 
-    // Load the vertex data
-    glVertexAttribPointer ( 0, 3, GL_FLOAT, GL_FALSE, 0, triangle->getVertices() .data());
-    glEnableVertexAttribArray ( 0 );
-
-    glDrawArrays ( GL_TRIANGLES, 0, 3 );
-
-
-    triangle->onRender(g_programObject);
+    shape->onRender(g_programObject);
 }
-
 
 /*
  * Class:     opengl_panjq_com_opengl_demo_RendererJNI
@@ -219,27 +204,22 @@ JNIEXPORT void JNICALL Java_opengl_panjq_com_opengl_1demo_RendererJNI_glesRender
  * Signature: (II)V
  */
 JNIEXPORT void JNICALL Java_opengl_panjq_com_opengl_1demo_RendererJNI_glesResize
-  (JNIEnv *pEnv, jobject obj, jint width, jint height){
+  (JNIEnv *pEnv, jobject obj, jint width, jint height) {
     g_width = width;
     g_height = height;
-
 }
 
-
 JNIEXPORT void JNICALL Java_opengl_panjq_com_opengl_1demo_RendererJNI_readShaderFile
-        (JNIEnv *env, jobject self, jobject assetManager){
-    if (assetManager && env)
-    {
+        (JNIEnv *env, jobject self, jobject assetManager) {
+    if (assetManager && env) {
         //LOGI("before AAssetManager_fromJava");
         g_pAssetManager = AAssetManager_fromJava(env, assetManager);
         //LOGI("after AAssetManager_fromJava");
-        if (NULL == g_pAssetManager)
-        {
+        if (nullptr == g_pAssetManager) {
             LOGE("AAssetManager_fromJava() return null !");
         }
     }
-    else
-    {
+    else {
         LOGE("assetManager is null !");
     }
 }

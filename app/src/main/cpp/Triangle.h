@@ -14,13 +14,15 @@ class Triangle : public  Shape {
 public:
     Triangle();
 
-    char *getGLSLVertexShader() const;
+    virtual char *getGLSLVertexShader() const override ;
 
-    char *getGLSLFragmentShader() const;
+    virtual char *getGLSLFragmentShader() const override ;
 
-    std::vector<GLfloat> getVertices() const;
+    virtual std::vector<GLfloat> getVertices() const override ;
 
-    void onRender(GLint g_programObject) const;
+    virtual void onRender(GLint g_programObject) const override ;
+
+    static double getYValue(); // 静态
 };
 
 
